@@ -11,6 +11,7 @@ end
 local on_attach = function(client, bufnr)
     require("user.lsp.lspsaga").setup()
     require("user.lsp.lspkeymaps").setup()
+    require("user.lsp.illuminate").setup()
 
     if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false

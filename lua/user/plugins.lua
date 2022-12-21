@@ -18,6 +18,7 @@ return require('packer').startup(function()
     "glepnir/lspsaga.nvim",
     "b0o/SchemaStore.nvim",
     "neovim/nvim-lspconfig",
+    "RRethy/vim-illuminate",
     { "folke/lua-dev.nvim", commit = "8f94b49b982ec4e7644f1e5004ec33c98903d32a" }
   }
 

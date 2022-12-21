@@ -6,10 +6,48 @@ local sorters                 = require("telescope.sorters")
 local previewers              = require("telescope.previewers")
 
 if not telescope_ok then
-    return 
+    return
 end
 
 local find = { "fd", "--type", "f", "--strip-cwd-prefix" }
+
+local borderchars = {
+    prompt  = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+    results = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+    preview = { "▀", "▐", "▄", "▌", "▛", "▜", "▟", "▙" },
+}
+
+local colors = {
+    c1 = "#3b4252",
+    c2 = "#222831",
+    c3 = "#1e222b",
+    c4 = "#eceff4",
+    c5 = "#b48ead",
+    c6 = "#a3be8c",
+    c7 = "#bf616a",
+}
+
+local telescope_borders = {
+    TelescopePromptPrefix  = { fg = colors.c4 },
+    TelescopePromptCounter = { fg = colors.c4 },
+    TelescopeSelection     = { fg = colors.c4, bg = colors.c1 },
+
+    TelescopePromptNormal  = { fg = colors.c4, bg = colors.c2 },
+    TelescopeResultsNormal = { bg = colors.c2 },
+    TelescopePreviewNormal = { bg = colors.c2 },
+
+    TelescopePromptBorder  = { fg = colors.c2, bg = colors.c2 },
+    TelescopePreviewBorder = { fg = colors.c2, bg = colors.c2 },
+    TelescopeResultsBorder = { fg = colors.c2, bg = colors.c2 },
+
+    TelescopePromptTitle   = { fg = colors.c4, bg = colors.c5 },
+    TelescopeResultsTitle  = { fg = colors.c4, bg = colors.c7 },
+    TelescopePreviewTitle  = { fg = colors.c4, bg = colors.c6 },
+}
+
+for hl, col in pairs(telescope_borders) do
+    vim.api.nvim_set_hl(0, hl, col)
+end
 
 local ripgrep = {
     "rg",
@@ -149,6 +187,7 @@ local cfg = {
         file_sorter            = sorters.get_fuzzy_file,
         generic_sorter         = sorters.get_generic_fuzzy_sorter,
         layout_config          = layout_config,
+        borderchars            = borderchars,
         mappings               = mappings,
     },
     pickers = pickers,
