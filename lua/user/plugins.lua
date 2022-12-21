@@ -73,4 +73,13 @@ return require('packer').startup(function()
   -- colorscheme
   use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
   use "shaunsingh/nord.nvim"
+
+  -- markdown
+  use({ "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  })
 end)
