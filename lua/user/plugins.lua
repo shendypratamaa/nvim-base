@@ -66,6 +66,7 @@ return require('packer').startup(function()
   use "numToStr/Comment.nvim"
   use "moll/vim-bbye"
   use "mbbill/undotree"
+  use "christoomey/vim-tmux-navigator"
 
   -- motion
   use "tpope/vim-surround"
