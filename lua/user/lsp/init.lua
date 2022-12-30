@@ -92,9 +92,7 @@ local formatter = {
     "eslint_d",
     "fixjson",
     "shfmt",
-    -- currently broken because package receive given wrong architecture for x86_64 not for arm
-    -- "shellcheck",
-    -- reproduce using shellcheck from brew package for supporting arm chip
+    "shellcheck",
     "golangci-lint",
     "gofumpt",
     "goimports",
