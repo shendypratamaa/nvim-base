@@ -67,6 +67,7 @@ return require('packer').startup(function()
   use "moll/vim-bbye"
   use "mbbill/undotree"
   use "christoomey/vim-tmux-navigator"
+  use "ray-x/web-tools.nvim"
 
   -- motion
   use "tpope/vim-surround"

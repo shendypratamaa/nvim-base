@@ -11,10 +11,10 @@ local formatting   = nls.builtins.formatting
 local diagnostics  = nls.builtins.diagnostics
 local code_actions = nls.builtins.code_actions
 
-local prettier = "~/.config/prettier/.prettierrc.json"
-local eslint   = "~/.config/eslint/.eslintrc.json"
+local prettier = "~/.config/formatter/prettier/.prettierrc.json"
+local eslint   = "~/.config/formatter/eslint/.eslintrc.json"
+local flake8   = "~/.config/formatter/flake8/.flake8"
 local stylua   = "~/.config/nvim/stylua.toml"
-local flake8   = "~/.config/flake8/.flake8"
 
 local sources = {
     -- golang
