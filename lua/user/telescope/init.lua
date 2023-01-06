@@ -18,10 +18,10 @@ local borderchars = {
 }
 
 local colors = {
-    c1 = "#3b4252",
-    c2 = "#222831",
+    c1 = "#c2c2c2",
+    c2 = "#000000",
     c3 = "#1e222b",
-    c4 = "#eceff4",
+    c4 = "#000000",
     c5 = "#b48ead",
     c6 = "#a3be8c",
     c7 = "#bf616a",

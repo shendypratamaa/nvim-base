@@ -1,4 +1,24 @@
+local packer_ok, packer = pcall(require, 'packer')
+
+if not packer_ok then
+  return
+end
+
 vim.cmd [[packadd packer.nvim]]
+
+packer.init {
+  display = {
+    prompt_border = 'rounded',
+    open_fn = function()
+      return require('packer.util').float { border = 'rounded' }
+    end,
+  },
+  profile = {
+    enable = true,
+    threshold = 0,
+  },
+  max_jobs = 25,
+}
 
 return require('packer').startup(function()
   -- Packer can manage itself
@@ -24,8 +44,8 @@ return require('packer').startup(function()
   }
 
   -- snippets
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
 
   -- completions
   use "hrsh7th/nvim-cmp"
@@ -68,11 +88,16 @@ return require('packer').startup(function()
   use "mbbill/undotree"
   use "christoomey/vim-tmux-navigator"
   use "ray-x/web-tools.nvim"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- motion
   use "tpope/vim-surround"
   use "tpope/vim-repeat"
   use "tpope/vim-sleuth"
+  use "ggandor/leap.nvim"
+  use "ggandor/leap-ast.nvim"
+  use "ggandor/flit.nvim"
+  use 'nvim-tree/nvim-web-devicons'
 
   -- colorscheme
   use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }

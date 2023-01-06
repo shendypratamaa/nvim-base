@@ -11,10 +11,3 @@ vim.g.mkdp_markdown_css = ""
 vim.g.mkdp_highlight_css = ""
 vim.g.mkdp_port = ""
 vim.g.mkdp_theme = "dark"
-
-vim.keymap.set(
-    "n",
-    "<C-s>",
-    ":MarkdownPreviewToggle<CR>",
-    { noremap = true, silent = true }
-)
