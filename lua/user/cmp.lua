@@ -3,8 +3,6 @@ local context             = require("cmp.config.context")
 local snip_ok, luasnip    = pcall(require, "luasnip")
 local lspkind_ok, lspkind = pcall(require, "lspkind")
 
-require("luasnip.loaders.from_vscode").lazy_load()
-
 if not cmp_status_ok and snip_ok and lspkind_ok then
     return
 end
