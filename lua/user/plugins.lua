@@ -89,6 +89,7 @@ return require('packer').startup(function()
   use "christoomey/vim-tmux-navigator"
   use "ray-x/web-tools.nvim"
   use "lukas-reineke/indent-blankline.nvim"
+  use "ThePrimeagen/harpoon"
 
   -- motion
   use "tpope/vim-surround"
@@ -101,7 +102,7 @@ return require('packer').startup(function()
 
   -- colorscheme
   use { 'AlphaTechnolog/pywal.nvim', as = 'pywal' }
-  use "shaunsingh/nord.nvim"
+  use "rose-pine/neovim"
 
   -- markdown
   use({ "iamcco/markdown-preview.nvim",

@@ -51,3 +51,5 @@ end
 vim.opt.shortmess:append("c")
 vim.g.netrw_browsex_viewer = "open"
 vim.g.did_load_filetypes = 1
+
+vim.g.python3_host_prog = '/usr/bin/python3'
