@@ -50,12 +50,23 @@ local on_attach = function(client, bufnr)
         disableDiagnostics()
     end
 
+    if client.name == "yamlls" then
+        client.server_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+        disableDiagnostics()
+    end
+
     if client.name == "jsonls" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
     end
 
     if client.name == "html" then
+        client.server_capabilities.document_formatting = false
+        navic.attach(client, bufnr)
+    end
+
+    if client.name == "yamlls" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
     end
