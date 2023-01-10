@@ -1,11 +1,18 @@
 local lsp_ok, lsp_config = pcall(require, "lspconfig")
-local navic_ok, navic    = pcall(require, "nvim-navic")
-local cmp_ok, cmp        = pcall(require, "cmp_nvim_lsp")
-local lv_ok, lv          = pcall(require, "lua-dev")
-local scheme_ok, scheme  = pcall(require, "schemastore")
+local navic_ok, navic = pcall(require, "nvim-navic")
+local cmp_ok, cmp = pcall(require, "cmp_nvim_lsp")
+local lv_ok, lv = pcall(require, "lua-dev")
+local scheme_ok, scheme = pcall(require, "schemastore")
 
 if not lsp_ok and cmp_ok and lv_ok and scheme_ok and navic_ok then
     return
+end
+
+local function disableDiagnostics()
+    vim.lsp.handlers["textDocument/publishDiagnostics"] =
+        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+            virtual_text = false,
+        })
 end
 
 local on_attach = function(client, bufnr)
@@ -16,26 +23,31 @@ local on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
+        disableDiagnostics()
     end
 
     if client.name == "gopls" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
+        disableDiagnostics()
     end
 
     if client.name == "bashls" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
+        disableDiagnostics()
     end
 
     if client.name == "sumneko_lua" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
+        disableDiagnostics()
     end
 
     if client.name == "pyright" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
+        disableDiagnostics()
     end
 
     if client.name == "jsonls" then
@@ -81,7 +93,7 @@ local servers = {
     emmet_ls = {},
     yamlls = {},
     bashls = {},
-    gopls = {}
+    gopls = {},
 }
 
 local formatter = {
@@ -96,7 +108,7 @@ local formatter = {
     "golangci-lint",
     "gofumpt",
     "goimports",
-    "golines"
+    "golines",
 }
 
 local lsp_flags = {
@@ -104,18 +116,18 @@ local lsp_flags = {
 }
 
 for server_name, _ in pairs(servers) do
-    local lsp_opts = {
+    local opts = {
         flags = lsp_flags,
         on_attach = on_attach,
         capabilities = capabilities,
     }
 
-    lsp_opts = vim.tbl_deep_extend("force", lsp_opts, servers[server_name] or {})
-    lsp_config[server_name].setup(lsp_opts)
+    opts = vim.tbl_deep_extend("force", opts, servers[server_name] or {})
+    lsp_config[server_name].setup(opts)
 
     if server_name == "sumneko_lua" then
         lsp_config.sumneko_lua.setup(lv.setup({
-            lspconfig = lsp_opts,
+            lspconfig = opts,
         }))
     end
 end
