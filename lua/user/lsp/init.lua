@@ -65,11 +65,6 @@ local on_attach = function(client, bufnr)
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
     end
-
-    if client.name == "yamlls" then
-        client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
-    end
 end
 
 local update_capabilities = vim.lsp.protocol.make_client_capabilities()
