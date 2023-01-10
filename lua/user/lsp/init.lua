@@ -8,10 +8,6 @@ if not lsp_ok and cmp_ok and lv_ok and scheme_ok and navic_ok then
     return
 end
 
-local function disableDiagnostics()
-    vim.diagnostic.config({virtual_text = false})
-end
-
 local on_attach = function(client, bufnr)
     require("user.lsp.lspsaga").setup()
     require("user.lsp.lspkeymaps").setup()
@@ -20,25 +16,21 @@ local on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
-        disableDiagnostics()
     end
 
     if client.name == "gopls" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
-        disableDiagnostics()
     end
 
     if client.name == "bashls" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
-        disableDiagnostics()
     end
 
     if client.name == "sumneko_lua" then
         client.server_capabilities.document_formatting = false
         navic.attach(client, bufnr)
-        disableDiagnostics()
     end
 
     if client.name == "pyright" then
