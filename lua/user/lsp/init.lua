@@ -1,10 +1,9 @@
 local lsp_ok, lsp_config = pcall(require, "lspconfig")
-local navic_ok, navic = pcall(require, "nvim-navic")
 local cmp_ok, cmp = pcall(require, "cmp_nvim_lsp")
 local lv_ok, lv = pcall(require, "lua-dev")
 local scheme_ok, scheme = pcall(require, "schemastore")
 
-if not lsp_ok and cmp_ok and lv_ok and scheme_ok and navic_ok then
+if not lsp_ok and cmp_ok and lv_ok and scheme_ok then
     return
 end
 
@@ -15,55 +14,47 @@ local function disableDiagnostics()
         })
 end
 
-local on_attach = function(client, bufnr)
+local on_attach = function(client)
     require("user.lsp.lspsaga").setup()
     require("user.lsp.lspkeymaps").setup()
     require("user.lsp.illuminate").setup()
 
     if client.name == "tsserver" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
         disableDiagnostics()
     end
 
     if client.name == "gopls" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
         disableDiagnostics()
     end
 
     if client.name == "bashls" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
         disableDiagnostics()
     end
 
     if client.name == "sumneko_lua" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
         disableDiagnostics()
     end
 
     if client.name == "pyright" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
         disableDiagnostics()
     end
 
     if client.name == "yamlls" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
         disableDiagnostics()
     end
 
     if client.name == "jsonls" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
     end
 
     if client.name == "html" then
         client.server_capabilities.document_formatting = false
-        navic.attach(client, bufnr)
     end
 end
 
