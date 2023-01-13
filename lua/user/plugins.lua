@@ -39,8 +39,8 @@ return require("packer").startup(function()
         "neovim/nvim-lspconfig",
         "RRethy/vim-illuminate",
         "j-hui/fidget.nvim",
-        { "glepnir/lspsaga.nvim", commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e" },
-        { "folke/lua-dev.nvim", commit = "8f94b49b982ec4e7644f1e5004ec33c98903d32a" },
+        { "glepnir/lspsaga.nvim", commit = "b7b4777369b441341b2dcd45c738ea4167c11c9e", },
+        { "folke/lua-dev.nvim", commit = "8f94b49b982ec4e7644f1e5004ec33c98903d32a", },
     })
 
     -- snippets
@@ -60,39 +60,18 @@ return require("packer").startup(function()
     use("saadparwaiz1/cmp_luasnip")
 
     -- treesitter
-    use({
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-        commit = "ba752cee137986882e4f0faa0cc81e810ab28371",
-    })
-    use({
-        "nvim-treesitter/nvim-treesitter-refactor",
-        commit = "75f5895cc662d61eb919da8050b7a0124400d589",
-    })
-    use({
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        commit = "e63c2ff8e38fad77299dd74e14c7c9360e1b3181",
-    })
-    use({
-        "nvim-treesitter/nvim-treesitter-context",
-        commit = "3148205c72a535af0493fec7c90a12344ac2f90d",
-    })
-    use({
-        "nvim-treesitter/playground",
-        commit = "bcfab84f98a33f2ad34dda6c842046dca70aabf6",
-    })
-    use({
-        "JoosepAlviste/nvim-ts-context-commentstring",
-        commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08",
-    })
-    use({
-        "windwp/nvim-ts-autotag",
-        commit = "fdefe46c6807441460f11f11a167a2baf8e4534b",
-    })
-    use({
-        "p00f/nvim-ts-rainbow",
-        commit = "fad8badcd9baa4deb2cf2a5376ab412a1ba41797",
-    })
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", commit = "ba752cee137986882e4f0faa0cc81e810ab28371", })
+    use({ "nvim-treesitter/nvim-treesitter-refactor", commit = "75f5895cc662d61eb919da8050b7a0124400d589", })
+    use({ "nvim-treesitter/nvim-treesitter-textobjects", commit = "e63c2ff8e38fad77299dd74e14c7c9360e1b3181", })
+    use({ "nvim-treesitter/nvim-treesitter-context", commit = "3148205c72a535af0493fec7c90a12344ac2f90d", })
+    use({ "nvim-treesitter/playground", commit = "bcfab84f98a33f2ad34dda6c842046dca70aabf6", })
+    use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08", })
+    use({ "windwp/nvim-ts-autotag", commit = "fdefe46c6807441460f11f11a167a2baf8e4534b", })
+    use({ "p00f/nvim-ts-rainbow", commit = "fad8badcd9baa4deb2cf2a5376ab412a1ba41797", })
+
+    --quickfixlist
+    use({ "junegunn/fzf", run = function() vim.fn["fzf#install"]() end, })
+    use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
     -- status
     use("nvim-lualine/lualine.nvim")
@@ -129,12 +108,5 @@ return require("packer").startup(function()
     use("rose-pine/neovim")
 
     -- markdown
-    use({
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        setup = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    })
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 end)
