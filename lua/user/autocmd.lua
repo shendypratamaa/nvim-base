@@ -42,7 +42,6 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
         "lspsagaoutline",
         "undotree_2",
         "toggleterm",
-        "TelescopePrompt",
         "null-ls-info",
         "tsplayground",
         "fzf",

@@ -70,7 +70,6 @@ return require("packer").startup(function()
     use({ "p00f/nvim-ts-rainbow", commit = "fad8badcd9baa4deb2cf2a5376ab412a1ba41797", })
 
     --quickfixlist
-    use({ "junegunn/fzf", run = function() vim.fn["fzf#install"]() end, })
     use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
     -- status
@@ -78,6 +77,9 @@ return require("packer").startup(function()
 
     -- telescope
     use("nvim-telescope/telescope.nvim")
+
+    --git
+    use({"akinsho/git-conflict.nvim", tag = "*"})
     use("lewis6991/gitsigns.nvim")
 
     -- formatter
