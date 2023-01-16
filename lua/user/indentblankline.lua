@@ -5,14 +5,7 @@ if not indent_ok then
 end
 
 vim.opt.list = true
-vim.opt.listchars = {
-    eol = "↲",
-    tab = "» ",
-    extends = "❯",
-    precedes = "❮",
-    nbsp = "·",
-    trail = "·",
-}
+vim.opt.listchars = { eol = "↲" }
 
 vim.g.indent_blankline_char_list = { "»", "»", "»", "»" }
 vim.g.indent_blankline_indent_level = 10

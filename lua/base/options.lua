@@ -7,7 +7,7 @@ local options = {
     completeopt    = { "menuone", "noselect" },
     signcolumn     = "yes",
     mouse          = "a",
-    colorcolumn    = "80",
+    colorcolumn    = "80,81",
     guifont        = "JetBrainsMono Nerd Font Mono:h12",
     guicursor      = "",
     exrc           = true,
@@ -52,4 +52,4 @@ vim.opt.shortmess:append("c")
 vim.g.netrw_browsex_viewer = "open"
 vim.g.did_load_filetypes = 1
 
-vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.loaded_python3_provider = 0
