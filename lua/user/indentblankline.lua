@@ -7,6 +7,7 @@ end
 vim.opt.list = true
 vim.opt.listchars = { eol = "↲" }
 
+vim.g.indent_blankline_enabled = false
 vim.g.indent_blankline_char_list = { "»", "»", "»", "»" }
 vim.g.indent_blankline_indent_level = 10
 vim.g.indent_blankline_max_indent_increase = 1

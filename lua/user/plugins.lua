@@ -92,7 +92,6 @@ return require("packer").startup(function()
     use("moll/vim-bbye")
     use("mbbill/undotree")
     use("christoomey/vim-tmux-navigator")
-    use("ray-x/web-tools.nvim")
     use("lukas-reineke/indent-blankline.nvim")
     use("ThePrimeagen/harpoon")
 
